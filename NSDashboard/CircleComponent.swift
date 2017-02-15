@@ -17,7 +17,16 @@ class CircleComponent: UIView {
             drawBackground()
         }
     }
-        @IBInspectable var color: UIColor = UIColor.blue
+    @IBInspectable var color: UIColor = UIColor.blue{
+        didSet{
+            drawBackground()
+        }
+    }
+    
+    
+    
+    
+    
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -25,56 +34,64 @@ class CircleComponent: UIView {
             drawBackground()
     }
     
-    
-    
-    
-    
+   
      func drawBackground(){
     
-    
+        let middlePoint = CGPoint(x: self.frame.width/2   ,y: self.frame.height/2)
+        let greaterRadius = (self.frame.width + self.frame.height) / 7
+        let minorRadius = (self.frame.width + self.frame.height) / 10
+       
+        let width : CGFloat = 1
+        let fillWidth = (greaterRadius - minorRadius) * 2
+        
         let shapeLayer = CAShapeLayer()
-     
-        shapeLayer.lineWidth = 1
+        let shapeLayerFill = CAShapeLayer()
+        let shapeLayerFinal = CAShapeLayer()
+       
+        shapeLayer.lineWidth = width
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.strokeColor = UIColor.black.cgColor
      
-        let path = UIBezierPath(arcCenter: CGPoint(x: self.frame.width/2   ,y: self.frame.height/2), radius: 60, startAngle: CGFloat(0), endAngle: CGFloat(M_PI * 2), clockwise: false)
-        shapeLayer.path = path.cgPath
-        
-
-        
-        let shapeLayerFill = CAShapeLayer()
-        
-        shapeLayerFill.lineWidth = 40
+        shapeLayerFill.lineWidth =  fillWidth
         shapeLayerFill.fillColor = UIColor.clear.cgColor
         shapeLayerFill.strokeColor = color.cgColor
         shapeLayerFill.strokeStart = 0.0
-//        shapeLayerFill.strokeEnd = 10
-        shapeLayerFill.strokeEnd = perc / 100
-        
-        
-        let pathFill = UIBezierPath(arcCenter: CGPoint(x: self.frame.width/2   ,y: self.frame.height/2), radius: 40, startAngle: CGFloat(M_PI * 1.5), endAngle: CGFloat(M_PI * 3.5), clockwise: true)
-        shapeLayerFill.path = pathFill.cgPath
-      
-        
-        let shapeLayer2 = CAShapeLayer()
-        
+        shapeLayerFill.strokeEnd =   perc > 0 ?  perc / 100 : 0
     
+        shapeLayerFinal.lineWidth = width
+        shapeLayerFinal.fillColor = UIColor.white.cgColor
+        shapeLayerFinal.strokeColor = UIColor.black.cgColor
+   
         
-        shapeLayer2.lineWidth = 1
-        shapeLayer2.fillColor = UIColor.white.cgColor
-        shapeLayer2.strokeColor = UIColor.black.cgColor
+        let path = UIBezierPath(arcCenter: middlePoint, radius: greaterRadius, startAngle: CGFloat(0), endAngle: CGFloat(M_PI * 2), clockwise: false)
+        let pathFill = UIBezierPath(arcCenter: middlePoint, radius: minorRadius, startAngle: CGFloat(M_PI * 1.5), endAngle: CGFloat(M_PI * 3.5), clockwise: true)
+        let pathFinal =  UIBezierPath(arcCenter: middlePoint, radius: minorRadius , startAngle: CGFloat(0), endAngle: CGFloat(M_PI * 2), clockwise: false)
         
-        let path2 =  UIBezierPath(arcCenter: CGPoint(x: self.frame.width/2   ,y: self.frame.height/2), radius: 40 , startAngle: CGFloat(0), endAngle: CGFloat(M_PI * 2), clockwise: false)
-        
-        shapeLayer2.path = path2.cgPath
-        
-//        shapeLayer.addSublayer(shapeLayer2)
+        shapeLayer.path = path.cgPath
+        shapeLayerFill.path = pathFill.cgPath
+        shapeLayerFinal.path = pathFinal.cgPath
         
         shapeLayer.addSublayer(shapeLayerFill)
-        shapeLayerFill.addSublayer(shapeLayer2)
+        shapeLayerFill.addSublayer(shapeLayerFinal)
         layer.addSublayer(shapeLayer)
-    
+        
+        let textView = UITextView(frame: CGRect(x: self.frame.width/2 - minorRadius/2, y: self.frame.height/2 - minorRadius/4, width: minorRadius, height: minorRadius/2 ))
+        
+        
+//        textView.layer.anchorPoint =    CGPoint(x: self.frame.width/2, y: self.frame.height/2)
+        textView.text = "\(perc)%"
+        textView.textAlignment = NSTextAlignment.center
+        textView.textColor = UIColor.black
+        textView.tintColor = UIColor.black
+       //        self.bringSubview(toFront: textView)
+        textView.layer.zPosition = 1;
+
+        self.addSubview(textView)
+      
+        
+        
+        
+        
     
     
     }
