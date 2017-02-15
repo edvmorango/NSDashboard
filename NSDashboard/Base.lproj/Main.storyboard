@@ -53,7 +53,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="perc">
-                                        <real key="value" value="1"/>
+                                        <real key="value" value="9"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="color">
                                         <color key="value" red="0.98324198716406708" green="1" blue="0.69210257671644637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -74,12 +74,12 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XDG-lP-rzh" customClass="HorizontalComponent" customModule="NSDashboard" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="356" width="375" height="33"/>
+                                <rect key="frame" x="0.0" y="364" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="perc">
-                                        <real key="value" value="1"/>
+                                        <real key="value" value="57"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="color">
                                         <color key="value" red="0.3794374465" green="0.94404167699999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -38,10 +38,10 @@ class HorizontalComponent: UIView {
         
         let boxSize = CGSize(width: self.frame.width * 0.8   , height: self.frame.height * 0.4)
         let fillSize = CGSize(width: self.frame.width * 0.8  * perc / 100   , height: self.frame.height * 0.4)
-        let infoSize = CGSize(width: self.frame.width * 0.8  * 0.12  , height: self.frame.height * 0.4)
-        let beginPoint = CGPoint(x: self.frame.width * 0.1  , y: self.frame.height * 0.6)
         
-        let infoPoint = CGPoint(x:  self.frame.width * 0.8  * perc / 100 + self.frame.width * 0.8 * 0.12  / 2   , y: self.frame.height * 0.1)
+        let beginPoint = CGPoint(x: self.frame.width * 0.1  , y: self.frame.height * 0.6)
+        let infoSize = CGSize(width: self.frame.width * 0.8  * 0.22  , height: self.frame.height * 0.4)
+        let infoPoint = CGPoint(x:  self.frame.width * 0.8  * perc / 100   , y: self.frame.height * 0.1)
         
         let boxLayer = CAShapeLayer()
         let fillLayer =  CAShapeLayer()
@@ -61,12 +61,11 @@ class HorizontalComponent: UIView {
         fillLayer.path = fillPath.cgPath
         
         if perc > 0 {
-        let infoView = UITextView(frame: CGRect(origin: infoPoint, size: infoSize))
-        infoView.font = UIFont.systemFont(ofSize: 12)
-        infoView.textAlignment = NSTextAlignment.justified
+        let infoView = UILabel(frame: CGRect(origin: infoPoint, size: infoSize))
+        infoView.textAlignment = NSTextAlignment.center
         infoView.textColor = UIColor.black
         infoView.tintColor = UIColor.black
-        infoView.backgroundColor = UIColor.red
+        infoView.font = UIFont.systemFont(ofSize: infoView.frame.height * 0.8)
         infoView.text = "\(perc)"
         self.bringSubview(toFront: infoView)
         addSubview(infoView)

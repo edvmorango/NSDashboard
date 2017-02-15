@@ -78,14 +78,11 @@ class CircleComponent: UIView {
         let textView = UITextView(frame: CGRect(x: self.frame.width/2 - minorRadius/2, y: self.frame.height/2 - minorRadius/4, width: minorRadius, height: minorRadius/2 ))
         
         
-//        textView.layer.anchorPoint =    CGPoint(x: self.frame.width/2, y: self.frame.height/2)
         textView.text = "\(perc)%"
         textView.textAlignment = NSTextAlignment.center
-//        textView.font = UIFont(name: "Arial", size: 5)
         textView.textColor = UIColor.black
         textView.tintColor = UIColor.black
-               self.bringSubview(toFront: textView)
-//        textView.layer.zPosition = 1;
+        bringSubview(toFront: textView)
 
         self.addSubview(textView)
       
