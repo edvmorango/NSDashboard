@@ -20,6 +20,7 @@
 		5B490C641E52147600EACF13 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B490C631E52147600EACF13 /* GoogleService-Info.plist */; };
 		5B490C651E52147600EACF13 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B490C631E52147600EACF13 /* GoogleService-Info.plist */; };
 		5B490C661E52147600EACF13 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B490C631E52147600EACF13 /* GoogleService-Info.plist */; };
+		5B9883041E54757600CB4FF4 /* HorizontalComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9883031E54757600CB4FF4 /* HorizontalComponent.swift */; };
 		6D9E46926F2EA51B88394728 /* Pods_NSDashboardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 958C2F3DEB74CCACDE689D71 /* Pods_NSDashboardTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		5B490C551E520EB000EACF13 /* NSDashboardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDashboardUITests.swift; sourceTree = "<group>"; };
 		5B490C571E520EB000EACF13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B490C631E52147600EACF13 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5B9883031E54757600CB4FF4 /* HorizontalComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalComponent.swift; sourceTree = "<group>"; };
 		5D21E5C8189AD13E8A7DF411 /* Pods_NSDashboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NSDashboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5F1B51C46831684B504778 /* Pods-NSDashboardUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NSDashboardUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NSDashboardUITests/Pods-NSDashboardUITests.release.xcconfig"; sourceTree = "<group>"; };
 		958C2F3DEB74CCACDE689D71 /* Pods_NSDashboardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NSDashboardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				5B28F7E51E5367E400252B86 /* CircleComponent.swift */,
+				5B9883031E54757600CB4FF4 /* HorizontalComponent.swift */,
 			);
 			name = components;
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B490C381E520EB000EACF13 /* ViewController.swift in Sources */,
+				5B9883041E54757600CB4FF4 /* HorizontalComponent.swift in Sources */,
 				5B28F7E61E5367E400252B86 /* CircleComponent.swift in Sources */,
 				5B490C361E520EB000EACF13 /* AppDelegate.swift in Sources */,
 			);
