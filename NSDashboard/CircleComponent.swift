@@ -17,12 +17,27 @@ class CircleComponent: UIView {
             drawBackground()
         }
     }
+    
+    
+    
     @IBInspectable var color: UIColor = UIColor.blue{
         didSet{
             drawBackground()
         }
     }
     
+    @IBInspectable var baseToColor: UIColor = UIColor.blue{
+        didSet{
+            drawBackground()
+        }
+    }
+    
+    
+    @IBInspectable var insideColor: UIColor = UIColor.blue{
+        didSet{
+            drawBackground()
+        }
+    }
     
     
     
@@ -49,7 +64,7 @@ class CircleComponent: UIView {
         let shapeLayerFinal = CAShapeLayer()
        
         shapeLayer.lineWidth = width
-        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.fillColor = baseToColor.cgColor
         shapeLayer.strokeColor = UIColor.black.cgColor
      
         shapeLayerFill.lineWidth =  fillWidth
@@ -59,7 +74,7 @@ class CircleComponent: UIView {
         shapeLayerFill.strokeEnd =   perc > 0 ?  perc / 100 : 0
     
         shapeLayerFinal.lineWidth = width
-        shapeLayerFinal.fillColor = UIColor.white.cgColor
+        shapeLayerFinal.fillColor = insideColor.cgColor
         shapeLayerFinal.strokeColor = UIColor.black.cgColor
    
         
@@ -80,6 +95,7 @@ class CircleComponent: UIView {
         
         textView.text = "\(perc)%"
         textView.textAlignment = NSTextAlignment.center
+        textView.backgroundColor = insideColor
         textView.textColor = UIColor.black
         textView.tintColor = UIColor.black
         textView.font = UIFont.systemFont(ofSize: textView.frame.height * 0.6)
