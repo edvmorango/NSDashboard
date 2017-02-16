@@ -20,23 +20,41 @@ class MainViewController: UITableViewController {
         
         table.separatorColor = UIColor.clear
         
-        
-        let tree = ref.child("stream")
-        tree.childByAutoId()
-        tree.child("begin").setValue( Double(Date().timeIntervalSince1970))
-        
-        
-        let key = tree.child("users").childByAutoId().key
-        let val : Any? = ["id" : 7, "anonymous": true, "begin" :  Double(Date().timeIntervalSince1970), "end" : Double(Date().timeIntervalSince1970) ]
-        
-        
-        let update = ["/users/\(key)/)" : val ]
-        
-        ref.updateChildValues(update)
+      
     }
 
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return  tableView.dequeueReusableCell(withIdentifier: "circle")! as UITableViewCell
+   
+        let cell = tableView.dequeueReusableCell(withIdentifier: "circle")! as! CellDashController
+        
+        let refHandle = ref.observe(FIRDataEventType.value, with: { (snapshot) in
+            
+            let value = snapshot.value as! NSDictionary
+            let stream =  value["stream"]  as? NSDictionary
+            let usersRaw = stream?["users"] as? NSDictionary
+            let usersLayer = usersRaw?.map{ x in x.value as! NSDictionary}
+            let users = usersLayer?.map{x in x[")"] as! [String: AnyObject]}
+            
+            
+            let totalTweets = users?.map{x in x["tweets"] as! Int}.reduce(0, +)
+            let totalAnonymous = users?.map{x in x["anonymous"] as! Bool}.filter{$0}.count
+            let totalActive = users?.map{x in (x["begin"] as! Double,x["end"] as? Double)}.filter{(x,y) in y == nil}.count
+            let totalWatching = users?.map{x in x["viewing"] as! Bool}.filter{$0}.count
+            let totalUsers = users?.count
+          
+            
+            cell.totalUsuarios.text = "\(totalUsers!) usuários estão conectados"
+            cell.activeUsers.perc = CGFloat(totalActive!/totalUsers! * 100)
+            cell.anonymousUsers.perc =  CGFloat(totalAnonymous!/totalUsers! * 100)
+            cell.firstGraphic.perc = CGFloat(totalWatching!/totalUsers! * 100)
+            cell.secondGraphic.perc = CGFloat(totalTweets!/totalUsers!)
+            
+            
+        
+        })
+            
+        return  cell
+    
     }
 
 
