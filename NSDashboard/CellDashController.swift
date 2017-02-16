@@ -25,7 +25,7 @@ class CellDashController : UITableViewCell{
         let tree = ref.child("stream").child("1")
         
         tree.child("comeco_transmissao").setValue( Double(Date().timeIntervalSince1970))
-        tree.child("twitter").setValue( 500)
+        tree.child("twitter").setValue( 5200)
         tree.child("facebook").setValue( 100)
         tree.child("linkedin").setValue( 500)
         tree.child("instagram").setValue( 500)
@@ -33,7 +33,8 @@ class CellDashController : UITableViewCell{
         let key = tree.child("usuarios").childByAutoId().key
         
         let users : Any? = [ "entrada"  : Double(Date().timeIntervalSince1970),
-                             "na_pagina" : true
+                             "na_pagina" : true,
+//                             "saida":  Double(Date().timeIntervalSince1970)
                            ]
         
         let update = ["stream/\(tree.key)/users/\(key)/" : users]

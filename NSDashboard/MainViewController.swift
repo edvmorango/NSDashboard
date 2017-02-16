@@ -10,7 +10,7 @@ import UIKit
 import FirebaseDatabase
 class MainViewController: UITableViewController {
     
-   
+    var peak : Int = 0
     @IBOutlet var table: UITableView!
    
     
@@ -31,40 +31,43 @@ class MainViewController: UITableViewController {
             
             
             
-            guard  let value = snapshot.value as? NSDictionary else{
-            return 
-            }
-            let stream =  value["stream"]  as? NSDictionary
-            guard let usersRaw = stream?["users"] as? NSDictionary else{
-                return
-            }
+            guard let value = snapshot.value as? NSDictionary else{return}
+            guard let streamParent =  value["stream"]  as? NSArray else{return}
+            guard let stream = streamParent[1] as? NSDictionary  else{return}
+           
+            guard let usersRaw = stream["users"] as? NSDictionary else{return}
 
-            let usersLayer = usersRaw.map{ x in x.value as! NSDictionary}
-            let users = usersLayer.map{x in x[")"] as! [String: AnyObject]}
             
             
-            
-            let totalTweets = users.map{x in x["tweets"] as! Int}.reduce(0, +)
-            let totalAnonymous = users.map{x in x["anonymous"] as! Bool}.filter{$0}.count
-            let totalActive = users.map{x in (x["begin"] as! Double,x["end"] as? Double)}.filter{(x,y) in y != nil}.count
-            let totalWatching = users.map{x in x["viewing"] as! Bool}.filter{$0}.count
-            let totalUsers = users.count
-          
-            
-            cell.totalUsuarios.text = "\(totalUsers)"
-            
-            
-            
-            
-            let dTotalActive = Double(totalActive)
-            let dTotalUsers = Double(totalUsers)
+            let users = usersRaw.map{ x in x.value as! NSDictionary}
+//            let users = usersLayer.map{x in x[")"] as! [String: AnyObject]}
+//
+//            
+//            
+            let streamBegin = stream["comeco_transmissao"] as! Double
+            let totalTwitter  = stream["twitter"] as! Int
+            let totalFacebook = stream["facebook"] as! Int
+            let totalInstagram  = stream["instagram"] as! Int
+            let totalLinkedin  = stream["linkedin"] as! Int
             
             
-            cell.activeUsers.perc = CGFloat( (dTotalActive / dTotalUsers * 100))
-            cell.firstGraphic.perc = CGFloat(totalWatching/totalUsers * 100)
-            cell.secondGraphic.perc = CGFloat(totalTweets/totalUsers)
+            let totalUsers = Double(users.count)
+            let activeUsers = users.map{($0["entrada"] as! Double,$0["na_pagina"] as! Bool,$0["saida"] as? Double) }.filter{ $2 == nil }
+           
             
+            let totalActiveUsers = Double(activeUsers.count)
+            let totalEngagedUsers =  Double(activeUsers.filter{ _,x,_ in x  }.count)
             
+            if totalUsers > Double(self.peak) {
+                self.peak = Int(totalUsers)
+            }
+            
+        
+            cell.totalUsuarios.text = "\(Int(totalUsers))"
+            cell.activeUsers.perc =   CGFloat(totalActiveUsers / totalUsers * 100)
+            cell.anonymousUsers.perc = CGFloat( totalEngagedUsers/totalActiveUsers * 100)
+            
+
         
         })
             
