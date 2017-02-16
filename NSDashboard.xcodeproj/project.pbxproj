@@ -43,6 +43,7 @@
 		5BFC52E31E55CBFD002217FE /* Ubuntu-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BFC52DB1E55CBFD002217FE /* Ubuntu-Medium.ttf */; };
 		5BFC52E41E55CBFD002217FE /* Ubuntu-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BFC52DC1E55CBFD002217FE /* Ubuntu-MediumItalic.ttf */; };
 		5BFC52E51E55CBFD002217FE /* Ubuntu-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BFC52DD1E55CBFD002217FE /* Ubuntu-Regular.ttf */; };
+		5BFC52EA1E564D19002217FE /* GraphicComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFC52E91E564D19002217FE /* GraphicComponent.swift */; };
 		6D9E46926F2EA51B88394728 /* Pods_NSDashboardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 958C2F3DEB74CCACDE689D71 /* Pods_NSDashboardTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +105,7 @@
 		5BFC52DB1E55CBFD002217FE /* Ubuntu-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Medium.ttf"; sourceTree = "<group>"; };
 		5BFC52DC1E55CBFD002217FE /* Ubuntu-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-MediumItalic.ttf"; sourceTree = "<group>"; };
 		5BFC52DD1E55CBFD002217FE /* Ubuntu-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Regular.ttf"; sourceTree = "<group>"; };
+		5BFC52E91E564D19002217FE /* GraphicComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphicComponent.swift; sourceTree = "<group>"; };
 		5D21E5C8189AD13E8A7DF411 /* Pods_NSDashboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NSDashboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5F1B51C46831684B504778 /* Pods-NSDashboardUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NSDashboardUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NSDashboardUITests/Pods-NSDashboardUITests.release.xcconfig"; sourceTree = "<group>"; };
 		958C2F3DEB74CCACDE689D71 /* Pods_NSDashboardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NSDashboardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -196,6 +198,7 @@
 			children = (
 				5B28F7E51E5367E400252B86 /* CircleComponent.swift */,
 				5B9883031E54757600CB4FF4 /* HorizontalComponent.swift */,
+				5BFC52E91E564D19002217FE /* GraphicComponent.swift */,
 			);
 			name = components;
 			sourceTree = "<group>";
@@ -608,6 +611,7 @@
 			files = (
 				5B490C381E520EB000EACF13 /* MainViewController.swift in Sources */,
 				5B16A89D1E54F0710096579E /* CellDashController.swift in Sources */,
+				5BFC52EA1E564D19002217FE /* GraphicComponent.swift in Sources */,
 				5B9883041E54757600CB4FF4 /* HorizontalComponent.swift in Sources */,
 				5B28F7E61E5367E400252B86 /* CircleComponent.swift in Sources */,
 				5B490C361E520EB000EACF13 /* AppDelegate.swift in Sources */,
