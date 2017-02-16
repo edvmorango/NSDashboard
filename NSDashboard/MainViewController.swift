@@ -43,7 +43,7 @@ class MainViewController: UITableViewController {
             let totalUsers = users?.count
           
             
-            cell.totalUsuarios.text = "\(totalUsers!) usuários estão conectados"
+            cell.totalUsuarios.text = "\(totalUsers!)"
             cell.activeUsers.perc = CGFloat(totalActive!/totalUsers! * 100)
             cell.anonymousUsers.perc =  CGFloat(totalAnonymous!/totalUsers! * 100)
             cell.firstGraphic.perc = CGFloat(totalWatching!/totalUsers! * 100)
