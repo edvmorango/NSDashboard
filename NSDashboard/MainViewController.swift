@@ -13,13 +13,10 @@ class MainViewController: UITableViewController {
     var peak : Int = 0
     @IBOutlet var table: UITableView!
    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         table.separatorColor = UIColor.clear
-        
       
     }
 
@@ -28,8 +25,6 @@ class MainViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "circle")! as! CellDashController
         
         let refHandle = ref.observe(FIRDataEventType.value, with: { (snapshot) in
-            
-            
             
             guard let value = snapshot.value as? NSDictionary else{return}
             guard let streamParent =  value["stream"]  as? NSArray else{return}
@@ -58,8 +53,8 @@ class MainViewController: UITableViewController {
             let totalActiveUsers = Double(activeUsers.count)
             let totalEngagedUsers =  Double(activeUsers.filter{ _,x,_ in x  }.count)
             
-            if totalUsers > Double(self.peak) {
-                self.peak = Int(totalUsers)
+            if activeUsers.count > self.peak {
+                self.peak = activeUsers.count
             }
             
         
@@ -67,8 +62,11 @@ class MainViewController: UITableViewController {
             cell.activeUsers.perc =   CGFloat(totalActiveUsers / totalUsers * 100)
             cell.anonymousUsers.perc = CGFloat( totalEngagedUsers/totalActiveUsers * 100)
             
-
-        
+            cell.twitter.text = "\(totalTwitter)"
+            cell.facebook.text = "\(totalFacebook)"
+            cell.instagram.text = "\(totalInstagram)"
+            cell.linkedin.text = "\(totalLinkedin)"
+            cell.peak.text = "\(self.peak)"
         })
             
         return  cell

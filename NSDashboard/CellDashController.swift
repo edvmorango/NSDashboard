@@ -11,6 +11,15 @@ import UIKit
 
 
 class CellDashController : UITableViewCell{
+    @IBOutlet weak var peak: UILabel!
+   
+    
+    @IBOutlet weak var twitter: UILabel!
+    
+    @IBOutlet weak var facebook: UILabel!
+    @IBOutlet weak var instagram: UILabel!
+    
+    @IBOutlet weak var linkedin: UILabel!
     @IBOutlet weak var totalUsuarios: UILabel!
 
 
@@ -34,7 +43,7 @@ class CellDashController : UITableViewCell{
         
         let users : Any? = [ "entrada"  : Double(Date().timeIntervalSince1970),
                              "na_pagina" : true,
-//                             "saida":  Double(Date().timeIntervalSince1970)
+                             "saida":  Double(Date().timeIntervalSince1970)
                            ]
         
         let update = ["stream/\(tree.key)/users/\(key)/" : users]
