@@ -225,6 +225,7 @@
 		5B490C341E520EB000EACF13 /* NSDashboard */ = {
 			isa = PBXGroup;
 			children = (
+				5BFC52E61E55DE02002217FE /* Extensions */,
 				5B28F7E31E53659700252B86 /* Configs */,
 				5B28F7E21E53658D00252B86 /* ViewModel */,
 				5B28F7E11E53658800252B86 /* View */,
@@ -278,6 +279,13 @@
 				5BFC52C81E55CBD7002217FE /* UbuntuMono-RI.ttf */,
 			);
 			name = fonts;
+			sourceTree = "<group>";
+		};
+		5BFC52E61E55DE02002217FE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		B0207C943535B7BC2E1EA7E8 /* Frameworks */ = {

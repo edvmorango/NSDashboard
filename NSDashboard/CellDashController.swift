@@ -22,16 +22,22 @@ class CellDashController : UITableViewCell{
     @IBAction func actio(_ sender: Any) {
     
         
-        let tree = ref.child("stream")
-        tree.childByAutoId()
-        tree.child("begin").setValue( Double(Date().timeIntervalSince1970))
-        let key = tree.child("users").childByAutoId().key
-        let val : Any? = ["id" : 7, "anonymous": false, "begin" :  Double(Date().timeIntervalSince1970),  "end" : Double(Date().timeIntervalSince1970),
-                          "viewing": false, "tweets" : 1
-        ]
-        let update = ["stream/users/\(key)/)" : val ]
+        let tree = ref.child("stream").child("1")
         
+        tree.child("comeco_transmissao").setValue( Double(Date().timeIntervalSince1970))
+        tree.child("twitter").setValue( 500)
+        tree.child("facebook").setValue( 100)
+        tree.child("linkedin").setValue( 500)
+        tree.child("instagram").setValue( 500)
         
+        let key = tree.child("usuarios").childByAutoId().key
+        
+        let users : Any? = [ "entrada"  : Double(Date().timeIntervalSince1970),
+                             "na_pagina" : true
+                           ]
+        
+        let update = ["stream/\(tree.key)/users/\(key)/" : users]
+               
         
         ref.updateChildValues(update)
     

@@ -29,25 +29,40 @@ class MainViewController: UITableViewController {
         
         let refHandle = ref.observe(FIRDataEventType.value, with: { (snapshot) in
             
-            let value = snapshot.value as! NSDictionary
+            
+            
+            guard  let value = snapshot.value as? NSDictionary else{
+            return 
+            }
             let stream =  value["stream"]  as? NSDictionary
-            let usersRaw = stream?["users"] as? NSDictionary
-            let usersLayer = usersRaw?.map{ x in x.value as! NSDictionary}
-            let users = usersLayer?.map{x in x[")"] as! [String: AnyObject]}
+            guard let usersRaw = stream?["users"] as? NSDictionary else{
+                return
+            }
+
+            let usersLayer = usersRaw.map{ x in x.value as! NSDictionary}
+            let users = usersLayer.map{x in x[")"] as! [String: AnyObject]}
             
             
-            let totalTweets = users?.map{x in x["tweets"] as! Int}.reduce(0, +)
-            let totalAnonymous = users?.map{x in x["anonymous"] as! Bool}.filter{$0}.count
-            let totalActive = users?.map{x in (x["begin"] as! Double,x["end"] as? Double)}.filter{(x,y) in y == nil}.count
-            let totalWatching = users?.map{x in x["viewing"] as! Bool}.filter{$0}.count
-            let totalUsers = users?.count
+            
+            let totalTweets = users.map{x in x["tweets"] as! Int}.reduce(0, +)
+            let totalAnonymous = users.map{x in x["anonymous"] as! Bool}.filter{$0}.count
+            let totalActive = users.map{x in (x["begin"] as! Double,x["end"] as? Double)}.filter{(x,y) in y != nil}.count
+            let totalWatching = users.map{x in x["viewing"] as! Bool}.filter{$0}.count
+            let totalUsers = users.count
           
             
-            cell.totalUsuarios.text = "\(totalUsers!)"
-            cell.activeUsers.perc = CGFloat(totalActive!/totalUsers! * 100)
-            cell.anonymousUsers.perc =  CGFloat(totalAnonymous!/totalUsers! * 100)
-            cell.firstGraphic.perc = CGFloat(totalWatching!/totalUsers! * 100)
-            cell.secondGraphic.perc = CGFloat(totalTweets!/totalUsers!)
+            cell.totalUsuarios.text = "\(totalUsers)"
+            
+            
+            
+            
+            let dTotalActive = Double(totalActive)
+            let dTotalUsers = Double(totalUsers)
+            
+            
+            cell.activeUsers.perc = CGFloat( (dTotalActive / dTotalUsers * 100))
+            cell.firstGraphic.perc = CGFloat(totalWatching/totalUsers * 100)
+            cell.secondGraphic.perc = CGFloat(totalTweets/totalUsers)
             
             
         

@@ -92,23 +92,17 @@ class CircleComponent: UIView {
         
         let textView = UILabel(frame: CGRect(x: self.frame.width/2 - greaterRadius * 1.3 / 2, y: self.frame.height/2 - minorRadius/3, width: greaterRadius * 1.3 , height: minorRadius/1.5 ))
         
+        let stringPerc = String(format: "%.02f", perc)
         
-        textView.text = "\(perc)%"
+        textView.text = "\(stringPerc)%"
         textView.textAlignment = NSTextAlignment.center
         textView.backgroundColor = insideColor
         textView.textColor = UIColor.black
         textView.tintColor = UIColor.black
         textView.font = UIFont(name: "Ubuntu", size: textView.frame.height * 0.7)
-//        textView.font = UIFont.systemFont(ofSize: textView.frame.height * 0.7)
         bringSubview(toFront: textView)
 
         self.addSubview(textView)
-      
-        
-        
-        
-        
-    
     
     }
 
