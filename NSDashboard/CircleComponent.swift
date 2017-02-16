@@ -90,7 +90,7 @@ class CircleComponent: UIView {
         shapeLayerFill.addSublayer(shapeLayerFinal)
         layer.addSublayer(shapeLayer)
         
-        let textView = UITextView(frame: CGRect(x: self.frame.width/2 - minorRadius/2, y: self.frame.height/2 - minorRadius/3, width: minorRadius, height: minorRadius/2 ))
+        let textView = UILabel(frame: CGRect(x: self.frame.width/2 - greaterRadius * 1.3 / 2, y: self.frame.height/2 - minorRadius/3, width: greaterRadius * 1.3 , height: minorRadius/1.5 ))
         
         
         textView.text = "\(perc)%"
@@ -98,7 +98,8 @@ class CircleComponent: UIView {
         textView.backgroundColor = insideColor
         textView.textColor = UIColor.black
         textView.tintColor = UIColor.black
-        textView.font = UIFont.systemFont(ofSize: textView.frame.height * 0.6)
+        textView.font = UIFont(name: "Ubuntu", size: textView.frame.height * 0.7)
+//        textView.font = UIFont.systemFont(ofSize: textView.frame.height * 0.7)
         bringSubview(toFront: textView)
 
         self.addSubview(textView)
