@@ -39,6 +39,11 @@ class CircleComponent: UIView {
         }
     }
     
+    @IBInspectable var textColor: UIColor = UIColor.blue{
+        didSet{
+            drawBackground()
+        }
+    }
     
     
     
@@ -95,11 +100,12 @@ class CircleComponent: UIView {
         let stringPerc = String(format: "%.02f", perc)
         
         textView.text = "\(stringPerc)%"
+        textView.textColor = textColor
         textView.textAlignment = NSTextAlignment.center
         textView.backgroundColor = insideColor
         textView.textColor = UIColor.black
         textView.tintColor = UIColor.black
-        textView.font = UIFont(name: "Ubuntu", size: textView.frame.height * 0.7)
+        textView.font = UIFont(name: "Ubuntu Condensed", size: textView.frame.height * 0.7)
         bringSubview(toFront: textView)
 
         self.addSubview(textView)
