@@ -52,7 +52,7 @@ class CellDashController : UITableViewCell{
         
         
         
-        let update = ["stream/\(tree.key)/users/\(key)/" : users]
+        let update = ["stream/\(tree.key)/x : users]
             
         
         
