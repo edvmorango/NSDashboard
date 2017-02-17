@@ -148,15 +148,6 @@
                                                     <color key="textColor" red="0.43916493654251099" green="0.43924486637115479" blue="0.43915987014770508" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3ir-F3-M8n" customClass="GraphicComponent" customModule="NSDashboard" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="74" width="359" height="191"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                                            <color key="value" red="1" green="0.51865214110000002" blue="0.0001007135943" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gráfico de usuários online nos últimos minutos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VdW-8f-4kt">
                                                     <rect key="frame" x="0.0" y="37" width="359" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -234,6 +225,15 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3ir-F3-M8n" customClass="GraphicComponent" customModule="NSDashboard" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="78" width="359" height="191"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                            <color key="value" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
@@ -244,6 +244,7 @@
                                     <outlet property="activeUsers" destination="ioB-gN-WGr" id="Tfm-te-K3S"/>
                                     <outlet property="anonymousUsers" destination="OHN-14-MGC" id="qX3-gI-R8k"/>
                                     <outlet property="facebook" destination="mNO-6X-i8E" id="Tec-Mj-CnF"/>
+                                    <outlet property="graphic" destination="3ir-F3-M8n" id="Vpk-CO-BZc"/>
                                     <outlet property="instagram" destination="2im-tY-hlS" id="ikX-F0-c4D"/>
                                     <outlet property="linkedin" destination="PVx-O4-YG0" id="kEo-bQ-sGx"/>
                                     <outlet property="peak" destination="Gpz-z5-R4s" id="c8Q-xb-Yqk"/>

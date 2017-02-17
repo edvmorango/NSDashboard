@@ -22,6 +22,7 @@ class CellDashController : UITableViewCell{
     @IBOutlet weak var linkedin: UILabel!
     @IBOutlet weak var totalUsuarios: UILabel!
 
+    @IBOutlet weak var graphic: GraphicComponent!
 
     @IBOutlet weak var activeUsers: CircleComponent!
     
@@ -43,11 +44,13 @@ class CellDashController : UITableViewCell{
         
         let users : Any? = [ "entrada"  : Double(Date().timeIntervalSince1970),
                              "na_pagina" : true,
-                             "saida":  Double(Date().timeIntervalSince1970)
+                             "saida":  Double(Date().addingTimeInterval(TimeInterval(-120.0)).timeIntervalSince1970)
                            ]
         
+        
+        
         let update = ["stream/\(tree.key)/users/\(key)/" : users]
-               
+            
         
         ref.updateChildValues(update)
     

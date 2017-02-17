@@ -35,10 +35,7 @@ class MainViewController: UITableViewController {
             
             
             let users = usersRaw.map{ x in x.value as! NSDictionary}
-//            let users = usersLayer.map{x in x[")"] as! [String: AnyObject]}
-//
-//            
-//            
+
             let streamBegin = stream["comeco_transmissao"] as! Double
             let totalTwitter  = stream["twitter"] as! Int
             let totalFacebook = stream["facebook"] as! Int
@@ -47,8 +44,22 @@ class MainViewController: UITableViewController {
             
             
             let totalUsers = Double(users.count)
-            let activeUsers = users.map{($0["entrada"] as! Double,$0["na_pagina"] as! Bool,$0["saida"] as? Double) }.filter{ $2 == nil }
-           
+            let activeUsers = users.map{($0["entrada"] as! Double ,$0["na_pagina"] as! Bool,$0["saida"] as? Double) }.filter{ $2 == nil }
+            
+            
+            var listUsersTime : [Int] = []
+            
+            for i in 0...4{
+            
+            let time = Double(Date().addingTimeInterval(Double(i) * -60).timeIntervalSince1970)
+                
+                let usersAtTime = users.map{ $0["saida"] as? Double }.filter{$0 == nil || $0! > time   }.count
+                listUsersTime.append(usersAtTime)
+                
+            }
+            
+            print(listUsersTime)
+            
             
             let totalActiveUsers = Double(activeUsers.count)
             let totalEngagedUsers =  Double(activeUsers.filter{ _,x,_ in x  }.count)
@@ -57,7 +68,9 @@ class MainViewController: UITableViewController {
                 self.peak = activeUsers.count
             }
             
-        
+            cell.graphic.totalUsers = Int(totalUsers)
+            cell.graphic.valuesAtTime =  listUsersTime
+            
             cell.totalUsuarios.text = "\(Int(totalUsers))"
             cell.activeUsers.perc =   CGFloat(totalActiveUsers / totalUsers * 100)
             cell.anonymousUsers.perc = CGFloat( totalEngagedUsers/totalActiveUsers * 100)
