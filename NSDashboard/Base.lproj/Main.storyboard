@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Ubuntu-B.ttf">
+        <array key="Ubuntu-Bold.ttf">
             <string>Ubuntu-Bold</string>
         </array>
         <array key="Ubuntu-R.ttf">
@@ -21,7 +21,7 @@
         <scene sceneID="Qkj-dI-rby">
             <objects>
                 <navigationController id="Kfp-3A-vEy" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="qnN-tG-h6A">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qnN-tG-h6A">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -46,7 +46,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="907"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dyj-do-jkU" id="0VZ-sw-x4T">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="906"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="906.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ioB-gN-WGr" customClass="CircleComponent" customModule="NSDashboard" customModuleProvider="target">

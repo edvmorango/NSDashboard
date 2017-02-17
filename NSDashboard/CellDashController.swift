@@ -44,7 +44,7 @@ class CellDashController : UITableViewCell{
         
         let users : Any? = [ "entrada"  : Double(Date().timeIntervalSince1970),
                              "na_pagina" : true,
-                             "saida":  Double(Date().addingTimeInterval(TimeInterval(-120.0)).timeIntervalSince1970)
+                              "saida":  Double(Date().addingTimeInterval(TimeInterval(-220.0)).timeIntervalSince1970)
                            ]
         
         

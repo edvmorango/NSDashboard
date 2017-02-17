@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 import FirebaseDatabase
 class MainViewController: UITableViewController {
     
@@ -17,7 +18,15 @@ class MainViewController: UITableViewController {
         super.viewDidLoad()
         
         table.separatorColor = UIColor.clear
-      
+        
+        Timer.scheduledTimer(withTimeInterval: 60.0, repeats: true, block: {_ in
+            
+            let tree = ref.child("stream").child("1")
+            tree.child("ultimo_refresh").setValue( Double(Date().timeIntervalSince1970))
+            
+        })
+        
+        
     }
 
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -29,7 +38,7 @@ class MainViewController: UITableViewController {
             guard let value = snapshot.value as? NSDictionary else{return}
             guard let streamParent =  value["stream"]  as? NSArray else{return}
             guard let stream = streamParent[1] as? NSDictionary  else{return}
-           
+            
             guard let usersRaw = stream["users"] as? NSDictionary else{return}
 
             
@@ -69,7 +78,7 @@ class MainViewController: UITableViewController {
             }
             
             cell.graphic.totalUsers = Int(totalUsers)
-            cell.graphic.valuesAtTime =  listUsersTime
+            cell.graphic.valuesAtTime =  listUsersTime.reversed()
             
             cell.totalUsuarios.text = "\(Int(totalUsers))"
             cell.activeUsers.perc =   CGFloat(totalActiveUsers / totalUsers * 100)

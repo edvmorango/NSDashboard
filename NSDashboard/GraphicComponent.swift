@@ -19,17 +19,18 @@ class GraphicComponent: UIView{
     }
     
     @IBInspectable
-    var valuesAtTime : [Int] = [0,200,300,400,900]{
+    var valuesAtTime : [Int] = [0,2,4,6,8]{
         didSet{
+         
             drawBackground()
+         
         }
     }
     
     
     var totalUsers : Int = 0 {didSet{
-        if totalUsers > 0{
-        drawBackground()
-        }
+              drawBackground()
+        
         }}
     
     
@@ -101,6 +102,8 @@ class GraphicComponent: UIView{
         
         }
         
+        if( totalUsers > 0){
+            
         let line = CAShapeLayer()
         let linePath = UIBezierPath()
         
@@ -110,8 +113,11 @@ class GraphicComponent: UIView{
         for i in 0...4{
         
         let currentValue = CGFloat(valuesAtTime[i])
-        let reduction =  self.frame.height * 0.75 *  currentValue / CGFloat(totalUsers)
-        let point = CGPoint(x: boxX + boxY / 2 + self.frame.width * 0.8 * 0.2 * CGFloat(i), y: baseY   - reduction    )
+
+        var reduction =  self.frame.height * 0.75 *  currentValue / CGFloat(totalUsers)
+            if valuesAtTime[i] == totalUsers { reduction = 0}
+            
+            let point = CGPoint(x: boxX + boxY / 2 + self.frame.width * 0.8 * 0.2 * CGFloat(i), y: baseY   - reduction    )
         
         
             points.append(point)
@@ -124,14 +130,16 @@ class GraphicComponent: UIView{
             }
         
         }
-        
+      
         line.path = linePath.cgPath
-        line.strokeColor = UIColor.red.cgColor
+        line.strokeColor =   UIColor(colorLiteralRed: 66.0/255, green: 105.0/255, blue: 139.0/255, alpha: 1.0).cgColor
+            //UIColor.red.cgColor
         line.fillColor = UIColor.clear.cgColor
         line.lineWidth = 1
-//        line.lineJoin = kCALineJoinRound
         self.layer.addSublayer(line)
     
+        }
+        
     }
     
 }
