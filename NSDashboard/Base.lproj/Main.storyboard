@@ -46,7 +46,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="907"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dyj-do-jkU" id="0VZ-sw-x4T">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="906.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="906"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ioB-gN-WGr" customClass="CircleComponent" customModule="NSDashboard" customModuleProvider="target">
@@ -118,9 +118,8 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v4P-J6-fXv">
-                                            <rect key="frame" x="321" y="82" width="46" height="30"/>
+                                            <rect key="frame" x="268" y="0.0" width="107" height="117"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Button"/>
                                             <connections>
                                                 <action selector="actio:" destination="dyj-do-jkU" eventType="touchUpInside" id="dJA-H2-kOy"/>
                                             </connections>
@@ -253,6 +252,13 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zDk-9Z-73t">
+                                            <rect key="frame" x="0.0" y="8" width="59" height="102"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <connections>
+                                                <action selector="ativos:" destination="dyj-do-jkU" eventType="touchUpInside" id="PSm-Pb-pKa"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.56421571969985962" green="0.74687963724136353" blue="0.30151313543319702" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -92,7 +92,7 @@ class GraphicComponent: UIView{
                 , y: self.frame.height * 0.82 , width: self.frame.height * 0.04, height: self.frame.height * 0.05)
         
             let label = UILabel(frame: rect)
-            label.text = "\(Int(position[i]))"
+            label.text = "\(Int(position[i])-1)"
             label.textAlignment = .center
             label.textColor =  UIColor(colorLiteralRed: 165.0/255, green: 165.0/255, blue: 165.0/255, alpha: 1.0)
             label.font = UIFont.systemFont(ofSize: self.frame.height * 0.05)

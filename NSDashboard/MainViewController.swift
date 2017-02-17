@@ -82,7 +82,12 @@ class MainViewController: UITableViewController {
             
             cell.totalUsuarios.text = "\(Int(totalUsers))"
             cell.activeUsers.perc =   CGFloat(totalActiveUsers / totalUsers * 100)
+            
+            if totalActiveUsers > 0 {
             cell.anonymousUsers.perc = CGFloat( totalEngagedUsers/totalActiveUsers * 100)
+            }else{
+            cell.anonymousUsers.perc = CGFloat( 0)
+            }
             
             cell.twitter.text = "\(totalTwitter)"
             cell.facebook.text = "\(totalFacebook)"
